@@ -2,10 +2,27 @@
 __pycache__/
 *.py[cod]
 *$py.class
-
+*.xlsx
+*.db-shm
+*.db-wal
+.idea/
+venv/
+*.ini
+*.png
+*.jpg
+*.jpeg
+venv/
+*.bin
+*.db
+*.db-shm
+*.db-wal
+*.bat
+Config/*.ini
+Test_*
 # C extensions
 *.so
 
+*.csv
 # Distribution / packaging
 .Python
 build/
