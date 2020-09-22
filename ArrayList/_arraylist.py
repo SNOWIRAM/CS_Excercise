@@ -49,28 +49,39 @@ class ArrayList:
         self._size += 1
 
     def pop(self, index: int):
-        self._size -= 1
+        if not 0 <= index < self._size:
+            raise IndexError
+        return self._array[index]
+
+        self._size = self._size - 1
         value = self._array[index]
 
         for i in range(index, self._size):
             self._array[i] = self._array[i+1]
-
         return value
 
     def remove(self, index: int):
-        self._size -= 1
+        if not 0 <= index < self._size:
+            raise IndexError
+        return self._array[index]
+
+        self._size = self._size - 1
 
         for i in range(index, self._size):
             self._array[i] = self._array[i+1]
 
     def insert(self, index: int, value):
+        if not 0 <= index < self._size:
+            raise IndexError
+        return self._array[index]
+
         if self._size == self._array._size:
             temp_array = Array(size=2*self._array._size)
             for i in range(self._array._size):
                 temp_array[i] = self._array[i]
             self._array = temp_array
 
-        self._size += 1
+        self._size = self._size + 1
         for j in range(self._size, index, -1):
             self._array[j] = self._array[j-1]
 
