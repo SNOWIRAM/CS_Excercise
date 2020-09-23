@@ -1,5 +1,6 @@
 from _array import Array
 
+ARRAY_DEFAULT_SIZE = 10
 
 class ArrayList:
     """
@@ -11,7 +12,7 @@ class ArrayList:
     """
     def __init__(self):
         self._size = 0
-        self._array = Array(size=10)
+        self._array = Array(size=ARRAY_DEFAULT_SIZE)
 
     def __getitem__(self, index):
         if not 0 <= index < self._size:
@@ -78,20 +79,17 @@ class ArrayList:
                 temp_array[i] = self._array[i]
             self._array = temp_array
 
-        self._size += 1
         for j in range(self._size, index, -1):
             self._array[j] = self._array[j-1]
 
         self._array[index] = value
+        self._size += 1
 
-
-# Aside from arraylist
-# 1. Binary Search - social distancing problem
 
 if __name__ == "__main__":
+    # Test
     al = ArrayList()
-    for i in range(200):
-        al.append(i)
+    al.append(1)
     print(al)
     print(len(al))
     al.pop(1)
